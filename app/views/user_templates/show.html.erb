@@ -1,0 +1,42 @@
+<h1>
+  <%=@the_user.username%>
+</h1>
+
+<dl>
+  <dt>
+    <%=@the_user.username%>
+  </dt>
+  <dd>
+    <%=@the_user.id%>
+  </dd>
+
+  <dt>
+    Edit user
+  </dt>
+  <dd>
+    Form Goes Here
+  </dd>
+</dl>
+<h2>
+  Own photos (<%=@the_user.own_photos%>)
+</h2>
+
+<table border = "1">
+  <tr>
+    <th>Image</th>
+    <th>Owner</th>
+    <th>Caption</th>
+    <th>Posted</th>
+    <th></th>
+  </tr>
+  <% @the_user.own_photos.each do |a_photo|%>
+  <tr>
+    <td><img src = "http://robohash.org/<%= a_photo.image%>"</td>
+    <td><%=a_photo.poster.username%></td>
+    <td><%= a_photo.caption%></td>
+    <td><%= a_photo.created_at%></td>
+    <td>Show Details</td>
+  </tr>
+  <%end%>
+
+</table>
